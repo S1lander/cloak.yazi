@@ -12,23 +12,26 @@ A yazi plugin that redacts environment variable values in `.env` files during pr
 ## 🚀 Installation
 
 1. Navigate to:
-    ```bash
-    ~/.config/yazi/plugins/cloak.yazi/
-    ```
+   ```bash
+   ~/.config/yazi/plugins/cloak.yazi/
+   ```
 1. Clone the repo:
-    ```bash
-    git clone https://github.com/S1lander/cloak.yazi.git
-    ```
+   ```bash
+   git clone https://github.com/S1lander/cloak.yazi.git
+   ```
 1. Adjust the config 👇🏼
 
 ## ⚙️ Configuration
 
 Add these rules to your `~/.config/yazi/yazi.toml` under the `[plugin]` section in `previewers`:
+
 ```toml
 previewers = [
     # Environment files - redact values
-    { name = "*.env", run = "cloak" },
-    { name = ".env*", run = "cloak" },
+  { name = "*.env", run = "cloak" },
+  { name = "*.env.*", run = "cloak" },
+  { name = ".env", run = "cloak" },
+  { name = ".env*", run = "cloak" },
     # ... other previewers
 ]
 ```
@@ -38,6 +41,7 @@ previewers = [
 ## 💡 Example
 
 Given a `.env` file:
+
 ```
 API_KEY=super_secret_key_123
 DATABASE_URL="postgresql://user:password@localhost/db"
@@ -46,6 +50,7 @@ DEBUG=true
 ```
 
 The preview will show:
+
 ```
 API_KEY=********************
 DATABASE_URL="***************************************"
@@ -56,6 +61,7 @@ DEBUG=****
 ## ℹ️ How It Works
 
 The plugin:
+
 1. Intercepts preview requests for `.env` files
 1. Reads the file content
 1. Uses pattern matching to identify `KEY=VALUE` pairs
@@ -65,6 +71,7 @@ The plugin:
 ## ❗ Security Note
 
 This plugin only affects the **preview** display in yazi. The actual file contents remain unchanged. This is useful for:
+
 - Preventing shoulder surfing when browsing config files
 - Screen sharing sessions
 - Recording terminal sessions
