@@ -28,10 +28,10 @@ Add these rules to your `~/.config/yazi/yazi.toml` under the `[plugin]` section 
 ```toml
 previewers = [
     # Environment files - redact values
-  { name = "*.env", run = "cloak" },
-  { name = "*.env.*", run = "cloak" },
-  { name = ".env", run = "cloak" },
-  { name = ".env*", run = "cloak" },
+  { url = "*.env", run = "cloak" },
+  { url = "*.env.*", run = "cloak" },
+  { url = ".env", run = "cloak" },
+  { url = ".env*", run = "cloak" },
     # ... other previewers
 ]
 ```
