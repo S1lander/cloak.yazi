@@ -2,14 +2,14 @@
 
 A yazi plugin that redacts environment variable values in `.env` files during preview.
 
-## ⭐ Features
+## Features
 
 - Automatically detects `.env` files and redacts values while preserving keys
 - Maintains file formatting (comments, blank lines, etc.)
 - Handles quoted and unquoted values
 - Preserves quote characters while redacting content
 
-## 🚀 Installation
+## Installation
 
 1. Navigate to:
    ```bash
@@ -21,7 +21,7 @@ A yazi plugin that redacts environment variable values in `.env` files during pr
    ```
 1. Adjust the config 👇🏼
 
-## ⚙️ Configuration
+## Configuration
 
 Add these rules to your `~/.config/yazi/yazi.toml` under the `[plugin]` section in `previewers`:
 
@@ -38,7 +38,7 @@ previewers = [
 
 **Important**: These rules should be placed before the general `{ mime = "text/*", run = "code" }` rule so they take precedence.
 
-## 💡 Example
+## Example
 
 Given a `.env` file:
 
@@ -58,7 +58,7 @@ DEBUG=****
 # This is a comment
 ```
 
-## ℹ️ How It Works
+## How It Works
 
 The plugin:
 
@@ -68,7 +68,7 @@ The plugin:
 1. Replaces values with asterisks while preserving structure
 1. Displays the redacted content in the preview pane
 
-## ❗ Security Note
+## Security Note
 
 This plugin only affects the **preview** display in yazi. The actual file contents remain unchanged. This is useful for:
 
